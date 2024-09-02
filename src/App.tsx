@@ -91,17 +91,6 @@ const App: React.FC = () => {
     setClicks([...clicks, { id: Date.now(), x: e.pageX, y: e.pageY }]);
   };
 
-  useEffect(() => {
-    const tg = window.Telegram.WebApp;
-
-    // Ensure Telegram WebApp object is available
-    if (tg) {
-      tg.expand();
-
-      console.log(tg.initDataUnsafe.user);
-    }
-  }, []);
-  
   const handleAnimationEnd = (id: number) => {
     setClicks((prevClicks) => prevClicks.filter(click => click.id !== id));
   };
